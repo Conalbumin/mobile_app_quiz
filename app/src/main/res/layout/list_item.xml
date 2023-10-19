@@ -1,0 +1,30 @@
+<!-- res/layout/list_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/btnEditFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:background="@drawable/edit_icon" />
+
+    <ImageView
+        android:id="@+id/btnRemoveFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/remove_icon" />
+
+    <!-- Button để thêm chủ đề vào thư mục -->
+    <ImageView
+        android:id="@+id/btnAddFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_icon" />
+
+</LinearLayout>
