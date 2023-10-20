@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100dp">
+
+    <TextView
+        android:id="@+id/recent_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Recent"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/recent_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recent_bar"
+        android:text="Recent adapter" />
+
+    <TextView
+        android:id="@+id/popular_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recent_adapter"
+        android:layout_margin="16dp"
+        android:text="Popular"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/popular_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popular_bar"
+        android:text="Popular adapter" />
+
+
+    <TextView
+        android:id="@+id/creator_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popular_adapter"
+        android:layout_margin="16dp"
+        android:text="Top creator"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/creator_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/creator_bar"
+        android:text="Recent adapter" />
+
+</RelativeLayout>
