@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#E8E7E7"
+        />
+
+    <TextView
+        android:id="@+id/recent_bar"
+        android:layout_margin="16dp"
+        android:layout_below="@id/search_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="Recent"
+        />
+
+    <TextView
+        android:id="@+id/recent_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recent_bar"
+        android:text="Recent adapter"
+        />
+
+    <TextView
+        android:id="@+id/popular_bar"
+        android:layout_margin="16dp"
+        android:layout_below="@id/recent_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="Popular"
+        />
+
+    <TextView
+        android:id="@+id/popular_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popular_bar"
+        android:text="Popular adapter"
+        />
+
+
+    <TextView
+        android:id="@+id/creator_bar"
+        android:layout_margin="16dp"
+        android:layout_below="@id/popular_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="Top creator"
+        />
+
+    <TextView
+        android:id="@+id/creator_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/creator_bar"
+        android:text="Recent adapter"
+        />
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="12dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Home"
+            android:textAllCaps="false"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="662dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Favorite"
+            android:textAllCaps="false"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="662dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Library"
+            android:textAllCaps="false"
+            tools:layout_editor_absoluteX="223dp"
+            tools:layout_editor_absoluteY="662dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Profile"
+            android:textAllCaps="false"
+            tools:layout_editor_absoluteX="311dp"
+            tools:layout_editor_absoluteY="662dp" />
+    </LinearLayout>
+
+</RelativeLayout>

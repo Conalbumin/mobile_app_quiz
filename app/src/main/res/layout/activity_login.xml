@@ -43,7 +43,7 @@ tools:context=".MainActivity">
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"/>
             <include
-                layout="@layout/layout_register"/>
+                layout="@layout/layout_login"/>
         </LinearLayout>
 
         <ImageView
