@@ -21,8 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:background="@drawable/frame"
-                android:gravity="center_horizontal"
+                android:background="@drawable/frame_favorite"
+                android:gravity="center"
                 android:text="Favorite"
                 android:textSize="24dp" />
         </LinearLayout>
@@ -44,6 +44,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dung adapter" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dung favorite_item" />
 
         </LinearLayout>
     </RelativeLayout>
