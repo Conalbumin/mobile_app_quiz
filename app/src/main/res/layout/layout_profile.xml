@@ -64,7 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/id_fullName_TextView"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/frame">>
+                android:background="@drawable/frame">
 
                 <ImageView
                     android:id="@+id/ic_setting"

@@ -1,63 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/loginParent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ScrollView style="@style/parent">
+    <!-- main layout -->
+    <RelativeLayout
+        android:id="@+id/favorite_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
-        <RelativeLayout style="@style/parent">
+        <LinearLayout
+            android:id="@+id/favorite_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:weightSum="12">
-
-                <LinearLayout
-                    style="@style/parent"
-                    android:layout_weight="3"
-                    android:background="@drawable/login_shape_bk"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        style="@style/parent"
-                        android:background="@drawable/ic_login_bk"
-                        android:contentDescription="login background" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/headerText"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="40dp" />
-
-                <include layout="@layout/layout_login" />
-            </LinearLayout>
-
-            <ImageView
+            <TextView
+                android:id="@+id/recent_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="370dp"
-                android:layout_marginTop="10dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel" />
-        </RelativeLayout>
+                android:layout_margin="16dp"
+                android:background="@drawable/frame"
+                android:gravity="center_horizontal"
+                android:text="Favorite"
+                android:textSize="24dp" />
+        </LinearLayout>
 
-    </ScrollView>
+        <LinearLayout
+            android:id="@+id/favorite_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/favorite_title"
+            android:orientation="vertical">
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sach cac favorite" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dung adapter" />
 
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
