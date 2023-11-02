@@ -1,24 +1,36 @@
 package com.example.final_app;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.folder_item);
+        setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.listViewTopicsInFolder);
+        // Kiểm tra xem người dùng đã đăng nhập hay chưa
+        if (!isLoggedIn()) {
+            // Nếu người dùng chưa đăng nhập, mở activity_login
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
 
-        // Data for the list (you can replace this with your actual data)
-        String[] data = {"Mục1", "Mục2", "Mục3"};
 
-        // Create a custom ArrayAdapter with the list_item layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item, R.id.btnEditFolder, data);
+    }
 
-        listView.setAdapter(adapter);
+    private boolean isLoggedIn() {
+        // Kiểm tra xem có bất kỳ thông tin đăng nhập nào được lưu trữ trong SharedPreferences không
+        SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
+        String email = preferences.getString("email", null);
+        String password = preferences.getString("password", null);
+
+        return email != null && password != null;
     }
 }

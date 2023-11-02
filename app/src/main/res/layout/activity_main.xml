@@ -18,7 +18,7 @@
             android:orientation="vertical"
             android:layout_alignParentTop="true">
 
-            <include layout="@layout/layout_favorite" />
+            <include layout="@layout/layout_main" />
         </LinearLayout>
 
         <LinearLayout
