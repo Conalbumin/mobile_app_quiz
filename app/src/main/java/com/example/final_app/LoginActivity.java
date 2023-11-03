@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     private EditText editTextEmail, editTextPassword;
-    private Button cirLoginButton;
+    private Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class LoginActivity extends AppCompatActivity
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
-        cirLoginButton = findViewById(R.id.cirLoginButton);
+        buttonLogin = findViewById(R.id.buttonLogin);
 
-        cirLoginButton.setOnClickListener(this);
+        buttonLogin.setOnClickListener(this);
     }
 
     @Override

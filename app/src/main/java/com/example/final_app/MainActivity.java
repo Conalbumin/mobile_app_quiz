@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+    private Button buttonLogin, buttonRegister;
+    private RelativeLayout layoutRegister, layoutLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
-
-
     }
 
     private boolean isLoggedIn() {
