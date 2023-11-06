@@ -127,9 +127,11 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-
-
+            <Button
+                android:id="@+id/logOut"
+                android:layout_width="127dp"
+                android:layout_height="79dp"
+                android:text="@string/logout" />
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

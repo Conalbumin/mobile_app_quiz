@@ -30,23 +30,35 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/loginContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
+                android:visibility="visible"
                 android:orientation="vertical">
 
-                <TextView
-                    style="@style/headerText"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="40dp" />
+                <include
+                    android:id="@+id/login"
+                    layout="@layout/layout_login" />
+            </LinearLayout>
 
-                <include layout="@layout/layout_login" />
+            <LinearLayout
+                android:id="@+id/registerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:visibility="invisible"
+                android:orientation="vertical">
 
-                <include layout="@layout/layout_register" />
-
+                <include
+                    android:id="@+id/register"
+                    layout="@layout/layout_register" />
             </LinearLayout>
 
             <ImageView
@@ -62,5 +74,3 @@
     </ScrollView>
 
 </RelativeLayout>
-
-

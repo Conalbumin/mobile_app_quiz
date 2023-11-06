@@ -25,28 +25,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                style="@style/modifiedEditText"
-                android:hint="Name"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                style="@style/modifiedEditText"
-                android:hint="Mobile Number"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
+                android:id="@+id/editTextEmail"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
@@ -58,11 +37,18 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/editTextPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/buttonRegister"
@@ -72,6 +58,7 @@
             android:text="Register" />
 
         <TextView
+            android:id="@+id/loginNow"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/signup_login_hint"

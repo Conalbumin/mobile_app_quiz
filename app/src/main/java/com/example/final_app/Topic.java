@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TopicActivity extends AppCompatActivity {
+public class Topic extends AppCompatActivity {
 
     private ListView listViewTopics;
     private Button buttonAddTopic;
