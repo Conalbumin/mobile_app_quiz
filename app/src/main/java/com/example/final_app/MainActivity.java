@@ -3,35 +3,61 @@ package com.example.final_app;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity  {
-    private Button buttonLogin, buttonRegister;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class MainActivity extends AppCompatActivity {
+    private Button buttonLogin, buttonRegister, buttonLogout;
     private RelativeLayout layoutRegister, layoutLogin;
+    private FirebaseAuth auth;
+    private TextView textView;
+    private FirebaseUser user;
+    private View include;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Kiểm tra xem người dùng đã đăng nhập hay chưa
-        if (!isLoggedIn()) {
-            // Nếu người dùng chưa đăng nhập, mở activity_login
-            Intent intent = new Intent(this, LoginActivity.class);
+        // Check login status using SharedPreference
+        SharedPreferences sharedPreferences = getSharedPreferences("isLoggedIn", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        if (!isLoggedIn) {
+            Intent intent = new Intent(this, Login.class);
             startActivity(intent);
+            finish();
+        } else {
+            // Proceed with main activity's functionality
+            auth = FirebaseAuth.getInstance();
+            buttonLogout = findViewById(R.id.logOut);
+            user = auth.getCurrentUser();
+
+            textView.setText(user.getEmail());
+
+            buttonLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FirebaseAuth.getInstance().signOut();
+
+                    // Update login status to false in SharedPreference
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isLoggedIn", false);
+                    editor.apply();
+
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
         }
-    }
-
-    private boolean isLoggedIn() {
-        // Kiểm tra xem có bất kỳ thông tin đăng nhập nào được lưu trữ trong SharedPreferences không
-        SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
-        String email = preferences.getString("email", null);
-        String password = preferences.getString("password", null);
-
-        return email != null && password != null;
     }
 }
