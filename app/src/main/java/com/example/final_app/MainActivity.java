@@ -43,20 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
             textView.setText(user.getEmail());
 
-            buttonLogout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FirebaseAuth.getInstance().signOut();
+            buttonLogout.setOnClickListener(view -> {
+                FirebaseAuth.getInstance().signOut();
 
-                    // Update login status to false in SharedPreference
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("isLoggedIn", false);
-                    editor.apply();
+                // Update login status to false in SharedPreference
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isLoggedIn", false);
+                editor.apply();
 
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
-                    startActivity(intent);
-                    finish();
-                }
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
             });
         }
     }
