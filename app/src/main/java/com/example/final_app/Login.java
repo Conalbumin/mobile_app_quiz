@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private TextView registerNow;
+    private ImageView closeIcon;
 
     @Override
     public void onStart() {
@@ -50,7 +52,9 @@ public class Login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
         registerNow = findViewById(R.id.registerNow);
+        closeIcon = findViewById(R.id.ic_close);
 
+        closeIcon.setOnClickListener(v -> finish());
         registerNow.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Register.class);
             startActivity(intent);

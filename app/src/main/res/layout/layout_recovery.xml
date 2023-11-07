@@ -39,7 +39,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/cirLoginButton"
+            android:id="@+id/resetPasswordButton"
             style="@style/loginButton"
             android:text="Submit"
             android:layout_gravity="center_horizontal"

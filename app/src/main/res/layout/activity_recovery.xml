@@ -30,7 +30,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/loginContainer"
+                android:id="@+id/recoveryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
@@ -41,10 +41,9 @@
                 android:orientation="vertical">
 
                 <include
-                    android:id="@+id/register"
-                    layout="@layout/layout_register" />
+                    android:id="@+id/recovery"
+                    layout="@layout/layout_recovery" />
             </LinearLayout>
-
 
             <ImageView
                 android:id="@+id/ic_close"
