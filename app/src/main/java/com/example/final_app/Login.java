@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView registerNow;
     private ImageView closeIcon;
+    private TextView forgotPass;
 
     @Override
     public void onStart() {
@@ -53,12 +54,16 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         registerNow = findViewById(R.id.registerNow);
         closeIcon = findViewById(R.id.ic_close);
+        forgotPass = findViewById(R.id.forgotPassword);
 
+        forgotPass.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Recovery.class);
+            startActivity(intent);
+        });
         closeIcon.setOnClickListener(v -> finish());
         registerNow.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Register.class);
             startActivity(intent);
-            finish();
         });
 
         buttonLogin.setOnClickListener(v -> {

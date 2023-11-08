@@ -52,7 +52,6 @@
             android:textColor="#B87AF0"
             android:textSize="@dimen/newsMoreTextSize"
             android:layout_gravity="end"
-            android:onClick="viewForgotPAssword"
             android:layout_marginTop="10dp"/>
 
         <ProgressBar

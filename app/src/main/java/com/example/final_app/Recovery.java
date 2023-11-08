@@ -14,7 +14,6 @@ public class Recovery extends AppCompatActivity {
 
     private EditText emailEditText;
     private Button resetPasswordButton;
-    private TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

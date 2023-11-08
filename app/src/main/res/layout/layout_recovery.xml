@@ -43,6 +43,7 @@
             style="@style/loginButton"
             android:text="Submit"
             android:layout_gravity="center_horizontal"
+            android:onClick="resetPasswordButton"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
     </LinearLayout>
