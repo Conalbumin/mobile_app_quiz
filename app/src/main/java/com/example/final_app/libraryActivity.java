@@ -10,11 +10,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class libraryActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
-    private String[] tabs= new String[]{"Study set","Folder", "Group"};
+    private String[] titles = new String[]{"Study set", "Folder", "Group"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,32 +24,32 @@ public class libraryActivity extends AppCompatActivity {
         tabLayout=findViewById(R.id.tabLayout);
         viewPager=findViewById(R.id.viewPager);
         viewPager.setAdapter(new ViewPagerFragmentSateAdapter(this));
-
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(titles[position])).attach();
     }
 }
 
-public class ViewPagerFragmentSateAdapter extends FragmentStateAdapter{
-    public ViewPagerFragmentSateAdapter(FragmentActivity fragmentActivity){
+class ViewPagerFragmentSateAdapter extends FragmentStateAdapter {
+    private String[] titles = new String[]{"Study set", "Folder", "Group"};
+    public ViewPagerFragmentSateAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position){
-            case 0:
-                return new studySet();
-            case 1:
-                return new libraryFolder();
-            case 2:
-                return new libraryGroup();
+        if (position == 0) {
+            return new studySet();
+        } else if (position == 1) {
+            return new libraryFolder();
+        } else if (position == 2) {
+            return new libraryGroup();
         }
-        return  new studySet();
+        return new studySet();
 
     }
 
     @Override
     public int getItemCount() {
-        return tabs.length;
+        return titles.length;
     }
 }
