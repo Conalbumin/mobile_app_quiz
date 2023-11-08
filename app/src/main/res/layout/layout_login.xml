@@ -46,12 +46,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/forgotPassword"
             style="@style/viewParent"
             android:text="Forgot Password?"
             android:textColor="#B87AF0"
             android:textSize="@dimen/newsMoreTextSize"
             android:layout_gravity="end"
-            android:onClick="viewForgotPAssword"
             android:layout_marginTop="10dp"/>
 
         <ProgressBar
@@ -74,7 +74,7 @@
             android:textStyle="bold"
             android:textColor="#B87AF0"
             android:text="@string/login_signup_hint"
-            android:onClick="viewRegisterClicked"
+            android:onClick="registerNow"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
     </LinearLayout>
