@@ -13,4 +13,7 @@
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
+
+    <!--button color-->
+    <color name="buttonPrimaryColor">#B87AF0</color>
 </resources>
