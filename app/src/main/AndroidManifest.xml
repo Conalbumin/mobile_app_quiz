@@ -23,6 +23,16 @@
 
         <activity
             android:name=".libraryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+
+        <activity
+            android:name=".Login"
+            android:theme="@style/Theme.Final_app"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

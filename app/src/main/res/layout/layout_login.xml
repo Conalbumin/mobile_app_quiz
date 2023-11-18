@@ -65,9 +65,8 @@
             style="@style/loginButton"
             android:text="Login"
             android:textSize="15sp"
-            android:gravity="center_horizontal||center_vertical"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:gravity="center"
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/registerNow"

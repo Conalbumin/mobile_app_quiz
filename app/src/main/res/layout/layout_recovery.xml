@@ -47,7 +47,7 @@
             android:onClick="resetPasswordButton"
             android:text="Submit"
             android:textSize="15sp"
-            android:gravity="center_vertical||center_horizontal"/>
+            android:gravity="center_vertical|center_horizontal"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
