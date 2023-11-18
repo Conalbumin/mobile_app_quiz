@@ -23,6 +23,7 @@
         <TextView
             style="@style/parent"
             android:textColor="#CB9FE3"
+            android:textSize="15sp"
             android:text="Enter your the email address you signed up with. We'll email you a link to log in and reset your password."
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
@@ -41,10 +42,12 @@
         <Button
             android:id="@+id/resetPasswordButton"
             style="@style/loginButton"
-            android:text="Submit"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:onClick="resetPasswordButton"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:text="Submit"
+            android:textSize="15sp"
+            android:gravity="center_vertical||center_horizontal"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

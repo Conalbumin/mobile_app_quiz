@@ -26,6 +26,10 @@
                         style="@style/parent"
                         android:background="@drawable/ic_login_bk"
                         android:contentDescription="login background" />
+
+                    <include
+                        android:id="@+id/recovery"
+                        layout="@layout/layout_recovery" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -40,9 +44,6 @@
                 android:visibility="visible"
                 android:orientation="vertical">
 
-                <include
-                    android:id="@+id/recovery"
-                    layout="@layout/layout_recovery" />
             </LinearLayout>
 
             <ImageView
