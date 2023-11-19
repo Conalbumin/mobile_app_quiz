@@ -91,7 +91,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Login Successful.",
                                     Toast.LENGTH_SHORT).show();
                             // Update login status to true in SharedPreference
-                            SharedPreferences sharedPreferences = getIntent().getParcelableExtra("sharedPreferences");
+                            SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean("isLoggedIn", true);
                             editor.apply();
