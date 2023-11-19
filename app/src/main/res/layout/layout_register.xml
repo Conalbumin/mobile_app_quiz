@@ -24,7 +24,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextEmail"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_email_hint"
@@ -36,7 +36,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
