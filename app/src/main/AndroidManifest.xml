@@ -45,7 +45,7 @@
         <activity
             android:name=".Register"
             android:theme="@style/Theme.Final_app"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -53,6 +53,15 @@
 
         <activity
             android:name=".Recovery"
+            android:theme="@style/Theme.Final_app"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".Profile"
             android:theme="@style/Theme.Final_app"
             android:exported="false">
             <meta-data

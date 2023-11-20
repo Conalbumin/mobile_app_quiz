@@ -40,20 +40,14 @@ public class Profile extends AppCompatActivity {
     }
 
     private void logout() {
-        mAuth.signOut();
-
-        // Update login status to false in SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        mAuth.getInstance().signOut();
+        // Update login status to false in SharedPreference
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLoggedIn", false);
         editor.apply();
 
-        Toast.makeText(this, "Sign out successful.", Toast.LENGTH_SHORT).show();
-
-        // Navigate to your login or registration activity
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
-        finish();
 
     }
 }

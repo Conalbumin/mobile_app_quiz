@@ -30,7 +30,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button"
+                android:id="@+id/homeBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -40,7 +40,7 @@
                 tools:layout_editor_absoluteY="662dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
+                android:id="@+id/favoriteBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -50,7 +50,7 @@
                 tools:layout_editor_absoluteY="662dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button3"
+                android:id="@+id/libraryBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -60,7 +60,7 @@
                 tools:layout_editor_absoluteY="662dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button4"
+                android:id="@+id/profileBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

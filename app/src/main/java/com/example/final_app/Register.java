@@ -59,7 +59,6 @@ public class Register extends AppCompatActivity {
         textView.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
-            finish();
         });
 
         buttonRegister.setOnClickListener(v -> {
