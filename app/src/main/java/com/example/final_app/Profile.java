@@ -1,12 +1,9 @@
 package com.example.final_app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends AppCompatActivity {
-    private Button logOut, backtohome;
+    private Button logOut, backBtn;
     private SharedPreferences sharedPreferences;
     private FirebaseAuth mAuth;
 
@@ -24,18 +21,18 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_profile);
 
-        logOut = findViewById(R.id.logOut);
-        backtohome = findViewById(R.id.backtohome);
-        sharedPreferences = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
-        mAuth = FirebaseAuth.getInstance();
-
-        logOut.setOnClickListener(v -> {
-            logout();
-        });
-
-        backtohome.setOnClickListener(v -> {
-            finish(); // This will destroy the current activity
-        });
+//        logOut = findViewById(R.id.logOut);
+//        backBtn = findViewById(R.id.backBtn);
+//        sharedPreferences = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+//        mAuth = FirebaseAuth.getInstance();
+//
+//        logOut.setOnClickListener(v -> {
+//            logout();
+//        });
+//
+//        backBtn.setOnClickListener(v -> {
+//            finish(); // This will destroy the current activity
+//        });
 
     }
 
@@ -45,9 +42,8 @@ public class Profile extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLoggedIn", false);
         editor.apply();
-
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(Profile.this, Login.class);
         startActivity(intent);
-
+        finish();
     }
 }
