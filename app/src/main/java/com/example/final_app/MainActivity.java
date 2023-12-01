@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         profileBtn.setOnClickListener(v -> {
             mAuth.getInstance().signOut();
-            Intent intent=new Intent(MainActivity.this, Login.class);
+            Intent intent=new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
             finish();
         });

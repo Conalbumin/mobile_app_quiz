@@ -73,50 +73,45 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
-
-        <ImageView
-            android:id="@+id/double_arrow_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_double_arrow_right" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/achivement_layout"
-        android:layout_width="match_parent"
+        android:id="@+id/achievement_layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/setting_layout"
-        android:layout_marginTop="30dp">
-
-        <TextView
-            android:id="@+id/achivement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Achievements"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/frame">
 
         <ImageView
-            android:id="@+id/see_all"
+            android:id="@+id/ic_prize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginLeft="150dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_double_arrow_right" />
+            android:background="@drawable/ic_collection" />
 
+        <TextView
+            android:id="@+id/achievement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Achievements"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/achivement_layout"
+        android:layout_below="@+id/achievement_layout"
         android:layout_centerHorizontal="true">
 
         <LinearLayout
@@ -128,7 +123,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="5"/>
 
             <Button
                 android:id="@+id/logOut"
@@ -141,20 +136,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="3"/>
-
-            <Button
-                android:id="@+id/backBtn"
-                style="@style/logoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Home"
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:layout_weight="1"/>
+
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
