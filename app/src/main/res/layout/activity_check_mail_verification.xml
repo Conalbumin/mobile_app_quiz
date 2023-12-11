@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_shape_bk"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        style="@style/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="@drawable/login_shape_bk"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="UH OHHH !!"
+            android:textColor="@color/white"
+            android:textSize="32dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Look like you haven't verify your mail yet, please verify to continue"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-91dp">
+
+            <Button
+                android:id="@+id/checkVer"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/list_item"
+                android:layout_marginHorizontal="32dp"
+                android:text="Check verify"
+                android:textColor="@color/whiteTextColor" />
+
+            <Button
+                android:id="@+id/resendVer"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/list_item"
+                android:paddingHorizontal="24dp"
+                android:text="Resend verify"
+                android:textColor="@color/whiteTextColor" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        style="@style/parent"
+        android:background="@drawable/ic_login_bk"
+        android:contentDescription="login background"
+        tools:ignore="MissingConstraints" />
+
+</LinearLayout>

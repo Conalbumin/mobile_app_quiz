@@ -1,9 +1,14 @@
 package com.example.final_app;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,9 +16,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -43,6 +51,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
@@ -63,14 +72,10 @@ public class Register extends AppCompatActivity {
             String password = editTextPassword.getText().toString();
 
             if (TextUtils.isEmpty(email)) {
-                Toast.makeText(Register.this, "Enter email",
-                        Toast.LENGTH_SHORT).show();
-                return;
+                editTextEmail.setError("Please enter your email");
             }
             if (TextUtils.isEmpty(password)) {
-                Toast.makeText(Register.this, "Enter password",
-                        Toast.LENGTH_SHORT).show();
-                return;
+                editTextPassword.setError("Please enter a password");
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
@@ -78,11 +83,8 @@ public class Register extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(Register.this, "Account created",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),Login.class);
-                            startActivity(intent);
-                            finish();
+                            Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
+                            sendVerificationEmail();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(Register.this, "Authentication failed.",
@@ -90,6 +92,57 @@ public class Register extends AppCompatActivity {
                         }
                     });
         });
+    }
+
+    private void sendVerificationEmail(){
+        if(mAuth.getCurrentUser()!=null){
+            mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        showDialog();
+                    }else{
+                        Toast.makeText(Register.this,"Something is wrong!!",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void showDialog(){
+        Dialog dialog=new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.custom_email_verification_dialog);
+
+        Window window=dialog.getWindow();
+        if(window==null){
+            return;
+        }
+
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+
+        Button checkVer=dialog.findViewById(R.id.checkVer);
+        checkVer.setOnClickListener(v -> {
+            FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+            user.reload();
+            verifyStatus(user);
+        });
+        dialog.show();
+    }
+
+    private void verifyStatus(FirebaseUser user){
+        user.reload();
+        if(user.isEmailVerified()){
+            Toast.makeText(Register.this, "To main", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(Register.this, "To check email", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(getApplicationContext(), check_email_verification.class);
+            startActivity(intent);
+        }
     }
 }
 

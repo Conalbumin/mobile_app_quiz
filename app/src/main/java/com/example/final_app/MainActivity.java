@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mAuth = FirebaseAuth.getInstance();
 
         // khai bao (declaration, assuming these are buttons)
@@ -32,15 +33,20 @@ public class MainActivity extends AppCompatActivity {
         libraryBtn = findViewById(R.id.libraryBtn);
         profileBtn = findViewById(R.id.profileBtn);
 
-
-        profileBtn.setOnClickListener(v -> {
-            mAuth.getInstance().signOut();
-            Intent intent=new Intent(MainActivity.this, Profile.class);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(!user.isEmailVerified()){
+            Intent intent=new Intent(MainActivity.this, check_email_verification.class);
             startActivity(intent);
             finish();
+        }
+
+
+
+        profileBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this, Profile.class);
+            startActivity(intent);
         });
 
-//
         libraryBtn.setOnClickListener(v -> {
             Intent intent=new Intent(MainActivity.this, libraryActivity.class);
             startActivity(intent);
@@ -53,37 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
-
-
-        // If the user is not logged in, redirect to the Login activity
-//        if (!isLoggedIn) {
-//            Intent intent = new Intent(this, Login.class);
-//            startActivity(intent);
-//        } else {
-//            // Set up a single click listener for all buttons
-//            View.OnClickListener buttonClickListener = v -> {
-//                Intent intent;
-//                int id = v.getId();
-//                if (id == R.id.favoriteBtn) {// Start MainActivity
-//                    intent = new Intent(getApplicationContext(), Topic.class);
-//                } else if (id == R.id.libraryBtn) {// Start libraryActivity
-//                    intent = new Intent(getApplicationContext(), libraryActivity.class);
-//                } else if (id == R.id.profileBtn) {// Start Profile activity
-//                    intent = new Intent(getApplicationContext(), Profile.class);
-//                } else {
-//                    return; // Do nothing for other buttons
-//                }
-//                startActivity(intent);
-//                finish();
-//            };
-//
-//            // Set the click listener for all buttons
-//            favoriteBtn.setOnClickListener(buttonClickListener);
-//            libraryBtn.setOnClickListener(buttonClickListener);
-//            profileBtn.setOnClickListener(buttonClickListener);
-//        }
     }
 
     @Override
@@ -96,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
     }
 
 

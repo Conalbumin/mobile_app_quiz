@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "274346589791",
-    "project_id": "quiz-final-app-933ee",
-    "storage_bucket": "quiz-final-app-933ee.appspot.com"
+    "project_number": "209831301105",
+    "firebase_url": "https://final-app-53863-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "final-app-53863",
+    "storage_bucket": "final-app-53863.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:274346589791:android:ede7b5b3714900c1e765ea",
+        "mobilesdk_app_id": "1:209831301105:android:8f5455b32a2b4fc57dbe50",
         "android_client_info": {
           "package_name": "com.example.final_app"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDwxx3NTpKxUu9KD2AmCIg8mOD90sp2JnU"
+          "current_key": "AIzaSyBeC-wJuQJxgohlEMENL6Ay1tdJaHQXgw0"
         }
       ],
       "services": {

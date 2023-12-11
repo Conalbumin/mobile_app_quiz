@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="@android:color/transparent"
+    tools:context=".check_email_verification">
+
+    <LinearLayout
+        style="@style/parent"
+        android:layout_gravity="center"
+        android:layout_weight="3"
+        android:background="@drawable/login_shape_bk"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Email confirmation !!"
+            android:textColor="@color/white"
+            android:textSize="32dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="A verification link has been sent to your email"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/checkVer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="-64dp"
+            android:background="@drawable/list_item"
+            android:paddingHorizontal="24dp"
+            android:text="Check verify"
+            android:textColor="@color/whiteTextColor" />
+
+        <ImageView
+            style="@style/parent"
+            android:layout_height="120dp"
+            android:background="@drawable/ic_login_bk"
+            android:contentDescription="login background" />
+    </LinearLayout>
+
+</LinearLayout>

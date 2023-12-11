@@ -24,6 +24,7 @@
         android:text="Create your own folders for your own topic "/>
 
     <Button
+        android:id="@+id/createFolderBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create a folder"
