@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -26,20 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        currentUser.reload().addOnCompleteListener(task -> {
+            Toast.makeText(this, "Welcome, " + currentUser.getDisplayName() + " !", Toast.LENGTH_SHORT).show();
+        });
 
         // khai bao (declaration, assuming these are buttons)
         homeBtn = findViewById(R.id.homeBtn);
         favoriteBtn = findViewById(R.id.favoriteBtn);
         libraryBtn = findViewById(R.id.libraryBtn);
         profileBtn = findViewById(R.id.profileBtn);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(!user.isEmailVerified()){
-            Intent intent=new Intent(MainActivity.this, check_email_verification.class);
-            startActivity(intent);
-            finish();
-        }
-
 
 
         profileBtn.setOnClickListener(v -> {

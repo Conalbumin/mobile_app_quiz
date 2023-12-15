@@ -1,15 +1,25 @@
 package com.example.final_app;
 
 public class Folder {
-    private String FolderName, FolderDescription;
+    private String FolderName, FolderDescription, userName, FolderId;
 
     public Folder(){
 
     }
 
-    public Folder(String folderName, String folderDescription) {
-        FolderName = folderName;
-        FolderDescription = folderDescription;
+    public Folder(String folderName, String folderDescription, String userName, String folderId) {
+        this.FolderName = folderName;
+        this.FolderDescription = folderDescription;
+        this.userName = userName;
+        this.FolderId=folderId;
+    }
+
+    public String getFolderId() {
+        return FolderId;
+    }
+
+    public void setFolderId(String folderId) {
+        FolderId = folderId;
     }
 
     public String getFolderName() {
@@ -26,5 +36,13 @@ public class Folder {
 
     public void setFolderDescription(String folderDescription) {
         FolderDescription = folderDescription;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

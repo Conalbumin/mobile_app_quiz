@@ -2,39 +2,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_marginTop="-16dp">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="44dp"
-        android:background="@drawable/baseline_folder_copy_24" />
+    <LinearLayout
+        android:id="@+id/FolderCreateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="90dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="#B9000000"
-        android:textAlignment="center"
-        android:text="Create your own folders for your own topic "/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="44dp"
+            android:background="@drawable/baseline_folder_copy_24" />
 
-    <Button
-        android:id="@+id/createFolderBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create a folder"
-        android:layout_marginTop="8dp"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="8dp"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="@drawable/button_ripple_effect"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="90dp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#B9000000"
+            android:textAlignment="center"
+            android:text="Create your own folders for your own topic "/>
+
+        <Button
+            android:id="@+id/createFolderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create a folder"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_ripple_effect"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/FolderListLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/createNewFolderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create new folder"
+            android:backgroundTint="#5A8AD2"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/folderRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
 </LinearLayout>

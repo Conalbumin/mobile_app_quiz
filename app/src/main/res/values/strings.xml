@@ -2,6 +2,7 @@
     <string name="app_name">QUIZ</string>
     <string name="register">REGISTER</string>
     <string name="login_email_hint">Email</string>
+    <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="recovery_password">Enter email address</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>

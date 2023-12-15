@@ -24,9 +24,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class Register extends AppCompatActivity {
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextEmail, editTextPassword, editTextUsername;
     private Button buttonRegister;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
@@ -51,7 +52,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
+        editTextUsername=findViewById(R.id.editTextUsername);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
@@ -68,9 +69,13 @@ public class Register extends AppCompatActivity {
 
         buttonRegister.setOnClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
+            String username=editTextUsername.getText().toString();
             String email = editTextEmail.getText().toString();
             String password = editTextPassword.getText().toString();
 
+            if (TextUtils.isEmpty(username)) {
+                editTextUsername.setError("Please enter your username");
+            }
             if (TextUtils.isEmpty(email)) {
                 editTextEmail.setError("Please enter your email");
             }
@@ -83,8 +88,18 @@ public class Register extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
-                            sendVerificationEmail();
+                            FirebaseUser user=mAuth.getCurrentUser();
+                            UserProfileChangeRequest profileUpdate= new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username).build();
+                            user.updateProfile(profileUpdate).addOnCompleteListener(updateProfileTask -> {
+                                if (updateProfileTask.isSuccessful()) {
+                                    Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
+                                    sendVerificationEmail();
+                                } else {
+                                    Toast.makeText(Register.this, "Failed to set display name.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(Register.this, "Authentication failed.",
