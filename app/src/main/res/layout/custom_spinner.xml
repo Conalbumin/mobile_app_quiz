@@ -7,7 +7,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:ellipsize="marquee"
-    android:textColor="#428E87"
+    android:textColor="@color/buttonPrimaryColor"
     android:text="Filter"
     android:gravity="center"
     android:paddingVertical="8dp"

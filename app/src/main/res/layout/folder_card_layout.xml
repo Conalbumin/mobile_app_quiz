@@ -29,7 +29,7 @@
                 android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/buttonPrimaryColor"/>
 
             <Button
                 android:id="@+id/deleteBtn"
@@ -46,10 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="12dp"
-            android:text="Descripttion"
+            android:text="Description"
             android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/buttonPrimaryColor"
             android:gravity="bottom"/>
 
         <TextView
@@ -60,7 +60,7 @@
             android:text="User name"
             android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/buttonPrimaryColor"
             android:gravity="bottom"/>
     </LinearLayout>
 

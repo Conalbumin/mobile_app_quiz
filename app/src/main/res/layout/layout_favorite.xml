@@ -1,56 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <!-- main layout -->
-    <RelativeLayout
-        android:id="@+id/favorite_layout"
+    <TextView
+        android:id="@+id/titleFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="24dp"
+        android:text="Favorite"
+        android:textColor="@color/buttonPrimaryColor"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/favorite_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/recent_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@drawable/frame_favorite"
-                android:gravity="center"
-                android:text="Favorite"
-                android:textSize="24dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/favorite_adapter"
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/favorite_title"
-            android:orientation="vertical">
+            tools:listitem="@layout/item_favorite"/>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/button11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Danh sach cac favorite" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dung adapter" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dung favorite_item" />
 
-        </LinearLayout>
-    </RelativeLayout>
-
-</ScrollView>
+</LinearLayout>
