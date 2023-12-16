@@ -43,8 +43,6 @@ public class Profile extends AppCompatActivity {
 
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = auth.getCurrentUser();
-        String username = currentUser.getDisplayName();
 
         // Initialize views
         logOut = findViewById(R.id.logOut);
@@ -62,21 +60,19 @@ public class Profile extends AppCompatActivity {
         homeBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);
-        });
-
-        profileBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(this, Profile.class);
-            startActivity(intent);
+            finish();
         });
 
         libraryBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, libraryActivity.class);
             startActivity(intent);
+            finish();
         });
 
         favoriteBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, Favorite.class);
             startActivity(intent);
+            finish();
         });
 
         logOut.setOnClickListener(v -> {
@@ -113,7 +109,6 @@ public class Profile extends AppCompatActivity {
 
     private void setupUserProfile() {
         FirebaseUser currentUser = auth.getCurrentUser();
-
         if (currentUser != null) {
             // Display the user's display name in the TextView
             String username = currentUser.getDisplayName();

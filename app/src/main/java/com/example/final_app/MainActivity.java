@@ -39,24 +39,22 @@ public class MainActivity extends AppCompatActivity {
         libraryBtn = findViewById(R.id.libraryBtn);
         profileBtn = findViewById(R.id.profileBtn);
 
-        homeBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(this, MainActivity.class);
-            startActivity(intent);
-        });
-
         profileBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this, Profile.class);
+            Intent intent=new Intent(this, Profile.class);
             startActivity(intent);
+            finish();
         });
 
         libraryBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this, libraryActivity.class);
+            Intent intent=new Intent(this, libraryActivity.class);
             startActivity(intent);
+            finish();
         });
 
         favoriteBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this, Favorite.class);
+            Intent intent=new Intent(this, Favorite.class);
             startActivity(intent);
+            finish();
         });
 
     }

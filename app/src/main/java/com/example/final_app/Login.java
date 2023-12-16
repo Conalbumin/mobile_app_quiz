@@ -65,12 +65,14 @@ public class Login extends AppCompatActivity {
         forgotPass.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Recovery.class);
             startActivity(intent);
+            finish();
         });
         closeIcon.setOnClickListener(v -> finish());
 
         registerNow.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Register.class);
             startActivity(intent);
+            finish();
         });
 
         buttonLogin.setOnClickListener(v -> {

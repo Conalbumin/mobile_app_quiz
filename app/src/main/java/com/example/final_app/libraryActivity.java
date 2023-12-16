@@ -37,18 +37,19 @@ public class libraryActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         });
+
         profileBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, Profile.class);
             startActivity(intent);
+            finish();
         });
-        libraryBtn.setOnClickListener(v -> {
-            Intent intent=new Intent(this, libraryActivity.class);
-            startActivity(intent);
-        });
+
         favoriteBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, Favorite.class);
             startActivity(intent);
+            finish();
         });
     }
 }
