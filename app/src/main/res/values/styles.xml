@@ -65,8 +65,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
-    <!--layout_profile-->
+    <style name="layoutBtn" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/item_button</item>
+    </style>
 
 
 </resources>

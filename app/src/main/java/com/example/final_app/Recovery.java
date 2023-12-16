@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class Recovery extends AppCompatActivity {
 
     private EditText emailEditText;
     private Button resetPasswordButton;
+    private ImageView ic_close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,9 @@ public class Recovery extends AppCompatActivity {
 
         emailEditText = findViewById(R.id.editTextEmail);
         resetPasswordButton = findViewById(R.id.resetPasswordButton);
+        ic_close = findViewById(R.id.ic_close);
 
+        ic_close.setOnClickListener(view -> finish());
         resetPasswordButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             if (email.isEmpty()) {

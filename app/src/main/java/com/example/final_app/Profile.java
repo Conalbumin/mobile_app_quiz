@@ -12,10 +12,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,7 +30,10 @@ public class Profile extends AppCompatActivity {
     private Button logOut;
     private FirebaseAuth auth;
     private CircleImageView avatar;
-    private LinearLayout achievement_layout, setting_layout;
+    private TextView id_fullName_TextView;
+    private LinearLayout achievement_layout, change_password;
+    private AppCompatButton homeBtn, profileBtn, favoriteBtn, libraryBtn;
+
 
 
     @Override
@@ -38,12 +43,41 @@ public class Profile extends AppCompatActivity {
 
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        String username = currentUser.getDisplayName();
 
         // Initialize views
         logOut = findViewById(R.id.logOut);
         avatar = findViewById(R.id.id_profile_image);
+        id_fullName_TextView = findViewById(R.id.id_fullName_TextView);
         achievement_layout = findViewById(R.id.achievement_layout);
-        setting_layout = findViewById(R.id.setting_layout);
+        change_password = findViewById(R.id.change_password);
+        homeBtn = findViewById(R.id.homeBtn);
+        favoriteBtn = findViewById(R.id.favoriteBtn);
+        libraryBtn = findViewById(R.id.libraryBtn);
+        profileBtn = findViewById(R.id.profileBtn);
+
+        setupUserProfile();
+
+        homeBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        profileBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(this, Profile.class);
+            startActivity(intent);
+        });
+
+        libraryBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(this, libraryActivity.class);
+            startActivity(intent);
+        });
+
+        favoriteBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(this, Favorite.class);
+            startActivity(intent);
+        });
 
         logOut.setOnClickListener(v -> {
             auth.signOut();
@@ -77,6 +111,15 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    private void setupUserProfile() {
+        FirebaseUser currentUser = auth.getCurrentUser();
+
+        if (currentUser != null) {
+            // Display the user's display name in the TextView
+            String username = currentUser.getDisplayName();
+            id_fullName_TextView.setText(username);
+        }
+    }
     private void onSelectFromGalleryResult(Intent data) {
         if (data != null) {
             Uri selectedImage = data.getData();

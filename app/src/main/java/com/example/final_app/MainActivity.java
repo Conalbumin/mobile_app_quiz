@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         libraryBtn = findViewById(R.id.libraryBtn);
         profileBtn = findViewById(R.id.profileBtn);
 
+        homeBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
 
         profileBtn.setOnClickListener(v -> {
             Intent intent=new Intent(MainActivity.this, Profile.class);
@@ -48,13 +52,11 @@ public class MainActivity extends AppCompatActivity {
         libraryBtn.setOnClickListener(v -> {
             Intent intent=new Intent(MainActivity.this, libraryActivity.class);
             startActivity(intent);
-
         });
 
         favoriteBtn.setOnClickListener(v -> {
             Intent intent=new Intent(MainActivity.this, Favorite.class);
             startActivity(intent);
-
         });
 
     }
