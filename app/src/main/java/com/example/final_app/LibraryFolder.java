@@ -60,6 +60,7 @@ public class LibraryFolder extends Fragment {
 
         createFolder.setOnClickListener(v -> {
             openDialog();
+
         });
 
         FolderCreateLayout=view.findViewById(R.id.FolderCreateLayout);
@@ -84,6 +85,10 @@ public class LibraryFolder extends Fragment {
             }
             updateUI();
         });
+
+        dbFolder.addSnapshotListener((value, error) -> {
+           Toast.makeText(getContext(),"Updated",Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void updateUI(){
@@ -94,14 +99,12 @@ public class LibraryFolder extends Fragment {
 
             folderAdapter = new FolderAdapter(folderArrayList, getContext());
 
-
             FirebaseFirestore db= FirebaseFirestore.getInstance();
             CollectionReference dbFolder=db.collection("Folder");
 
             // Set item click listener for the adapter
             folderAdapter.setOnItemClickListener(folder -> {
                 // Handle click on the folder (e.g., open details, navigate to a new fragment)
-                Toast.makeText(getContext(), "Clicked on folder: " + folder.getFolderId(), Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(getContext(),FolderActivity.class);
                 intent.putExtra("folderID", folder.getFolderId());
                 startActivity(intent);
@@ -139,6 +142,7 @@ public class LibraryFolder extends Fragment {
 
         cancelBtn.setOnClickListener(v -> {
             dialog.dismiss();
+
         });
 
         OKBtn.setOnClickListener(v -> {
@@ -164,8 +168,6 @@ public class LibraryFolder extends Fragment {
                 public void onSuccess(DocumentReference documentReference) {
                     String folderId=documentReference.getId();
                     folder.setFolderId(folderId);
-
-                    Toast.makeText(getContext() ,"New folder is created " +folderId, Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                     fetchFolders();
                 }
@@ -181,4 +183,5 @@ public class LibraryFolder extends Fragment {
 
         dialog.show();
     }
+
 }
