@@ -60,7 +60,6 @@ public class LibraryFolder extends Fragment {
 
         createFolder.setOnClickListener(v -> {
             openDialog();
-
         });
 
         FolderCreateLayout=view.findViewById(R.id.FolderCreateLayout);
@@ -68,6 +67,14 @@ public class LibraryFolder extends Fragment {
 
         folderRV=view.findViewById(R.id.folderRV);
         fetchFolders();
+
+        FirebaseFirestore db=FirebaseFirestore.getInstance();
+        CollectionReference dbFolder=db.collection("Folder");
+
+        dbFolder.addSnapshotListener((value, error) -> {
+            Toast.makeText(getContext(),"Updated",Toast.LENGTH_SHORT).show();
+            fetchFolders();
+        });
 
         return view;
     }
@@ -86,9 +93,6 @@ public class LibraryFolder extends Fragment {
             updateUI();
         });
 
-        dbFolder.addSnapshotListener((value, error) -> {
-           Toast.makeText(getContext(),"Updated",Toast.LENGTH_SHORT).show();
-        });
     }
 
     private void updateUI(){
@@ -108,6 +112,11 @@ public class LibraryFolder extends Fragment {
                 Intent intent= new Intent(getContext(),FolderActivity.class);
                 intent.putExtra("folderID", folder.getFolderId());
                 startActivity(intent);
+            });
+
+
+            folderAdapter.setOnDeleteClickListener(folder -> {
+                dbFolder.document(folder.getFolderId()).
             });
 
             folderRV.setLayoutManager(new LinearLayoutManager(getContext()));

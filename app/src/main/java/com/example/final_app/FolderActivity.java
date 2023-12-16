@@ -51,7 +51,6 @@ public class FolderActivity extends AppCompatActivity {
 
 
         backBtn.setOnClickListener(v -> {
-
             finish();
         });
 
@@ -125,6 +124,8 @@ public class FolderActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(FolderActivity.this, "Folder updated successfully", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
+                        Intent returnIntent= new Intent();
+                        returnIntent.putExtra("changeVal",1);
                     }
                 });
 
