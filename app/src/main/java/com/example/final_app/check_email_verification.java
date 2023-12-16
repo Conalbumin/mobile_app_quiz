@@ -25,17 +25,16 @@ public class check_email_verification extends AppCompatActivity {
 
         checkVer=findViewById(R.id.checkVer);
         resendVer=findViewById(R.id.resendVer);
-
         mAuth=FirebaseAuth.getInstance();
 
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         if(user.isEmailVerified()){
-            Toast.makeText(this, "is verify", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, user + " is verify", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
             finish();
         }else {
-            Toast.makeText(this, "isnt verify", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, user + " is not verify", Toast.LENGTH_SHORT).show();
         }
 
         checkVer.setOnClickListener(v -> {
@@ -47,7 +46,7 @@ public class check_email_verification extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }else {
-                Toast.makeText(this, checkUser.getEmail()   +" isnt verify", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, checkUser.getEmail()   +" is not verify", Toast.LENGTH_SHORT).show();
             }
         });
         mAuth.getCurrentUser();
