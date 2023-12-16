@@ -1,6 +1,8 @@
 package com.example.final_app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,6 +13,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,24 +60,23 @@ public class Profile extends AppCompatActivity {
 
         setupUserProfile();
 
+        change_password.setOnClickListener(view -> showChangePasswordConfirmationDialog());
+
         homeBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         });
-
         libraryBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, libraryActivity.class);
             startActivity(intent);
             finish();
         });
-
         favoriteBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, Favorite.class);
             startActivity(intent);
             finish();
         });
-
         logOut.setOnClickListener(v -> {
             auth.signOut();
             Toast.makeText(Profile.this, "Signed out", Toast.LENGTH_SHORT).show();
@@ -84,7 +86,6 @@ public class Profile extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
         avatar.setOnClickListener(view -> {
             Toast.makeText(getApplicationContext(), "Profile Pic", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent();
@@ -104,15 +105,6 @@ public class Profile extends AppCompatActivity {
                 // Use the onSelectFromGalleryResult method to handle the selected image
                 onSelectFromGalleryResult(data);
             }
-        }
-    }
-
-    private void setupUserProfile() {
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if (currentUser != null) {
-            // Display the user's display name in the TextView
-            String username = currentUser.getDisplayName();
-            id_fullName_TextView.setText(username);
         }
     }
     private void onSelectFromGalleryResult(Intent data) {
@@ -145,6 +137,64 @@ public class Profile extends AppCompatActivity {
                 // Update the CircleImageView in your layout with the new image
                 avatar.setImageBitmap(BitmapFactory.decodeFile(picturePath));
             }
+        }
+    }
+    private void setupUserProfile() {
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            // Display the user's display name in the TextView
+            String username = currentUser.getDisplayName();
+            id_fullName_TextView.setText(username);
+        }
+    }
+
+
+    private void showChangePasswordConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you want to change your password?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // User confirmed, show the password change dialog
+                showPasswordChangeDialog();
+            }
+        });
+        builder.setNegativeButton("No", null); // Do nothing if the user clicks "No"
+        builder.show();
+    }
+
+    private void showPasswordChangeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // Inflate a layout for the dialog
+        View view = getLayoutInflater().inflate(R.layout.layout_change_password, null);
+        EditText editTextPassword = view.findViewById(R.id.editTextPassword);
+        builder.setView(view);
+        builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+            // Get the new password from the EditText
+            String newPassword = editTextPassword.getText().toString();
+            Log.e("Password", "newPassword " + newPassword);
+
+            // Call a method to change the password
+            changeUserPassword(newPassword);
+        });
+        builder.setNegativeButton("No", null); // Do nothing if the user clicks "No"
+        builder.show();
+    }
+
+    private void changeUserPassword(String newPassword) {
+        FirebaseUser user = auth.getCurrentUser();
+        Log.e("Password", "user " + user);
+
+        if (user != null) {
+            user.updatePassword(newPassword)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Profile.this, "Password changed successfully", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Profile.this, "Failed to change password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 }

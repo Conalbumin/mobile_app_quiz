@@ -116,7 +116,7 @@ public class LibraryFolder extends Fragment {
 
 
             folderAdapter.setOnDeleteClickListener(folder -> {
-                dbFolder.document(folder.getFolderId()).
+                dbFolder.document(folder.getFolderId());
             });
 
             folderRV.setLayoutManager(new LinearLayoutManager(getContext()));
