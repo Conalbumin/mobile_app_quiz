@@ -1,17 +1,37 @@
 package com.example.final_app;
 
-public class Folder {
-    private String FolderName, FolderDescription, userName, FolderId;
+import java.util.Date;
 
+public class Folder {
+    private String FolderName, FolderDescription, userName, FolderId, userId;
+    private Date dateCreated;
     public Folder(){
 
     }
 
-    public Folder(String folderName, String folderDescription, String userName, String folderId) {
+    public Folder(String folderName, String folderDescription, String userName, String folderId, Date DateCreated,String userId) {
         this.FolderName = folderName;
         this.FolderDescription = folderDescription;
         this.userName = userName;
         this.FolderId=folderId;
+        this.dateCreated=DateCreated;
+        this.userId=userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public String getFolderId() {

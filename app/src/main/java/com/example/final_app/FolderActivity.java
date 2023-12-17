@@ -51,6 +51,7 @@ public class FolderActivity extends AppCompatActivity {
 
 
         backBtn.setOnClickListener(v -> {
+
             finish();
         });
 

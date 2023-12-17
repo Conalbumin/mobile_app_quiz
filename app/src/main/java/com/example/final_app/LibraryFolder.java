@@ -22,8 +22,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -33,6 +35,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LibraryFolder extends Fragment {
 
@@ -87,7 +90,6 @@ public class LibraryFolder extends Fragment {
 
         Query query = dbFolder.whereEqualTo("userId", currentUser.getUid()).orderBy("dateCreated", Query.Direction.DESCENDING);
 
-
         query.get().addOnSuccessListener(queryDocumentSnapshots ->  {
             folderArrayList=new ArrayList<>();
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
@@ -109,7 +111,6 @@ public class LibraryFolder extends Fragment {
             folderAdapter = new FolderAdapter(folderArrayList, getContext());
 
             FirebaseFirestore db= FirebaseFirestore.getInstance();
-            CollectionReference dbFolder=db.collection("Folder");
 
             // Set item click listener for the adapter
             folderAdapter.setOnItemClickListener(folder -> {
@@ -121,7 +122,13 @@ public class LibraryFolder extends Fragment {
 
 
             folderAdapter.setOnDeleteClickListener(folder -> {
-                dbFolder.document(folder.getFolderId());
+                DocumentReference dbFolder=db.collection("Folder").document(folder.getFolderId());
+                dbFolder.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
             });
 
             folderRV.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -156,7 +163,6 @@ public class LibraryFolder extends Fragment {
 
         cancelBtn.setOnClickListener(v -> {
             dialog.dismiss();
-
         });
 
         OKBtn.setOnClickListener(v -> {
@@ -173,10 +179,14 @@ public class LibraryFolder extends Fragment {
             FirebaseUser currentUser = mAuth.getCurrentUser();
             String userName= currentUser.getDisplayName();
 
+            String userId=currentUser.getUid();
+
             String FolderID = "";
 
+            Date dateCreated= new Date();
+
             CollectionReference dbFolder=db.collection("Folder");
-            Folder folder= new Folder(FolderName,FolderDes,userName, FolderID);
+            Folder folder= new Folder(FolderName,FolderDes,userName, FolderID, dateCreated,userId);
             dbFolder.add(folder).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {

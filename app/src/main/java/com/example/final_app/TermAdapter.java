@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermHolder> {
     private ArrayList<Term> termArrayList;
     private Context context;
+    private TopicAdapter.OnItemClickListener onItemClickListener;
+    private TopicAdapter.OnDeleteClickListener onDeleteClickListener;
 
     public TermAdapter(ArrayList<Term> termArrayList, Context context){
         this.termArrayList=termArrayList;
