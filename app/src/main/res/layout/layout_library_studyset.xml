@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <Spinner
-            android:id="@+id/spinner"
-            android:padding="8dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown">
+        
+        <LinearLayout
+            android:id="@+id/TopicCreateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
 
-        </Spinner>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="44dp"
+                android:background="@drawable/baseline_folder_copy_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="90dp"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="#B9000000"
+                android:textAlignment="center"
+                android:text="Create your own topics for your own topic "/>
+
+            <Button
+                android:id="@+id/createTopicBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create a topic"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_ripple_effect"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/TopicListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/createNewTopicBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create new topic"
+                android:backgroundTint="#5A8AD2"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinner"-->
+<!--                android:padding="8dp"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginLeft="12dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:spinnerMode="dropdown">-->
+
+<!--            </Spinner>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topicRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
 
 
-</FrameLayout>
+</LinearLayout>

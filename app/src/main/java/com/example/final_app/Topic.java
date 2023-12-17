@@ -1,52 +1,79 @@
 package com.example.final_app;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.Date;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Topic {
+    private String setId, setTitle, setDes, userId, userName;
+    private Date dateCreated;
+    private ArrayList<Term> terms;
 
-public class Topic extends AppCompatActivity {
+    public Topic() {
+    }
 
-    private ListView listViewTopics;
-    private Button buttonAddTopic;
-    private ListAdapter adapter;
+    public Topic(String setId, String setTitle, String setDes, String userId, String userName, Date dateCreated, ArrayList<Term> terms) {
+        this.setId = setId;
+        this.setTitle = setTitle;
+        this.setDes = setDes;
+        this.userId = userId;
+        this.userName = userName;
+        this.dateCreated = dateCreated;
+        this.terms=terms;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public ArrayList<Term> getTerms() {
+        return terms;
+    }
 
-        // Inflate file activity_topic.xml
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_topic, null);
+    public void setTerms(ArrayList<Term> terms) {
+        this.terms = terms;
+    }
 
-        // Gán ListView có ID listViewTopics cho biến listViewTopics
-        listViewTopics = view.findViewById(R.id.listViewTopics);
+    public String getSetId() {
+        return setId;
+    }
 
-        // Thiết lập sự kiện click cho Button có ID btnAddTopic
-        buttonAddTopic = view.findViewById(R.id.btnAddTopic);
-        buttonAddTopic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hiển thị dialog để thêm một chủ đề mới
-                // ...
-            }
-        });
+    public void setSetId(String setId) {
+        this.setId = setId;
+    }
 
-        // Thêm ListView vào layout
-        setContentView(view);
+    public String getSetTitle() {
+        return setTitle;
+    }
 
-        // Lấy danh sách các chủ đề
-        // ...
+    public void setSetTitle(String setTitle) {
+        this.setTitle = setTitle;
+    }
 
-        // Tạo adapter cho ListView
-        // ...
+    public String getSetDes() {
+        return setDes;
+    }
 
-        // Gán adapter cho ListView
-        listViewTopics.setAdapter(adapter);
+    public void setSetDes(String setDes) {
+        this.setDes = setDes;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 }
-
-

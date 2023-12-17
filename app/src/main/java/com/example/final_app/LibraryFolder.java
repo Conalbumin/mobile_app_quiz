@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -81,9 +82,13 @@ public class LibraryFolder extends Fragment {
 
     private void fetchFolders(){
         FirebaseFirestore db=FirebaseFirestore.getInstance();
+        FirebaseAuth currentUser=FirebaseAuth.getInstance();
         CollectionReference dbFolder=db.collection("Folder");
 
-        dbFolder.get().addOnSuccessListener(queryDocumentSnapshots ->  {
+        Query query = dbFolder.whereEqualTo("userId", currentUser.getUid()).orderBy("dateCreated", Query.Direction.DESCENDING);
+
+
+        query.get().addOnSuccessListener(queryDocumentSnapshots ->  {
             folderArrayList=new ArrayList<>();
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                 Folder folder = documentSnapshot.toObject(Folder.class);
@@ -116,7 +121,7 @@ public class LibraryFolder extends Fragment {
 
 
             folderAdapter.setOnDeleteClickListener(folder -> {
-                dbFolder.document(folder.getFolderId()).
+                dbFolder.document(folder.getFolderId());
             });
 
             folderRV.setLayoutManager(new LinearLayoutManager(getContext()));

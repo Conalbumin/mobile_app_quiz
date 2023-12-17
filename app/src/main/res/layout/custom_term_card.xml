@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:background="#4F848181">
+
+        <EditText
+            android:id="@+id/termEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="TERM"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/defEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DEFINITION"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -18,16 +18,16 @@
         <activity
             android:name=".check_email_verification"
             android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".libraryActivity"-->
+<!--            android:exported="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+
+<!--        </activity>-->
         <activity
             android:name=".libraryActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-        </activity>
-        <activity
-            android:name=".Login"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -76,6 +76,13 @@
         </activity>
         <activity
             android:name=".FolderActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TopicCreateActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
