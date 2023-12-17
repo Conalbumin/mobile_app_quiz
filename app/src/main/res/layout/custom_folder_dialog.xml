@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Folder name"
-        android:textColorHint="#28000000"
+        android:textColorHint="@color/buttonPrimaryColor"
         android:textStyle="bold"/>
 
     <EditText
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Description (optional)"
-        android:textColorHint="#28000000"
+        android:textColorHint="@color/buttonPrimaryColor"
         android:textStyle="bold"/>
 
     <LinearLayout
