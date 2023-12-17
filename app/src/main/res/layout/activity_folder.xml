@@ -52,7 +52,7 @@
             android:text="Folder name"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/buttonPrimaryColor"/>
 
         <TextView
             android:id="@+id/numOfSet"

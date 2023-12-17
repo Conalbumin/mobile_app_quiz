@@ -13,7 +13,7 @@
         android:layout_marginLeft="18dp"
         android:layout_marginTop="24dp"
         android:text="Library"
-        android:textColor="@color/black"
+        android:textColor="@color/buttonPrimaryColor"
         android:textSize="32dp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints" />

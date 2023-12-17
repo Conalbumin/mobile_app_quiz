@@ -38,14 +38,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         android:gravity="center"
+        style="@style/layoutBtn"
         android:text="Name here"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
-        android:id="@+id/change_password"
+        android:id="@+id/layout_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/id_fullName_TextView"
@@ -63,13 +64,13 @@
             android:background="@drawable/ic_settings" />
 
         <TextView
-            android:id="@+id/password"
+            android:id="@+id/setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Change password"
-            android:textColor="@color/black"
+            android:text="Settings"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
@@ -79,7 +80,7 @@
         android:id="@+id/achievement_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/change_password"
+        android:layout_below="@+id/layout_setting"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/frame">
@@ -100,7 +101,38 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Achievements"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/change_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/achievement_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/frame">
+
+        <ImageView
+            android:id="@+id/ic_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_password" />
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Change password"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
@@ -110,13 +142,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/achievement_layout"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@+id/change_password">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:weightSum="7">
 
             <TextView

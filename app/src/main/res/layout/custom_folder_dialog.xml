@@ -14,14 +14,14 @@
         android:text="Create folder"
         android:textSize="28dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/buttonPrimaryColor"/>
 
     <EditText
         android:id="@+id/folderNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Folder name"
-        android:textColorHint="#28000000"
+        android:textColorHint="@color/buttonPrimaryColor"
         android:textStyle="bold"/>
 
     <EditText
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Description (optional)"
-        android:textColorHint="#28000000"
+        android:textColorHint="@color/buttonPrimaryColor"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/buttonPrimaryColor"
             android:backgroundTint="#FFFFFF"
             style="@style/Widget.AppCompat.Button.Borderless"/>
 
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/buttonPrimaryColor"
             android:backgroundTint="#FFFFFF"
             style="@style/Widget.AppCompat.Button.Borderless"/>
 

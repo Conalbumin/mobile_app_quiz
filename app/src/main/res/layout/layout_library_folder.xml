@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create new folder"
-            android:backgroundTint="#5A8AD2"
+            android:backgroundTint="#B87AF0"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
 
