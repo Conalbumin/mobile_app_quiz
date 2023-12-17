@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 public class Favorite extends AppCompatActivity {
-    private AppCompatButton homeBtn, profileBtn, favoriteBtn, libraryBtn;
+    private AppCompatButton homeBtn, profileBtn, libraryBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

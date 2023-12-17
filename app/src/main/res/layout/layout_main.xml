@@ -1,48 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/buttonPrimaryColor"
-        android:background="#E8E7E7" />
+        android:background="@drawable/search"
+        android:layout_marginTop="8dp"/>
 
-    <LinearLayout
-        android:id="@+id/main_layout"
+    <TextView
+        android:id="@+id/helloUser"
+        android:layout_below="@+id/search_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:text="Hello User"
+        android:textColor="@color/buttonPrimaryColor"
+        android:textSize="24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/folderRecyclerView"
+        android:layout_below="@+id/helloUser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_bar"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/recent_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Recent"
-            android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/popular_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recent_bar"
-            android:layout_margin="16dp"
-            android:text="Popular"
-            android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/creator_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/popular_bar"
-            android:layout_margin="16dp"
-            android:text="Top creator"
-            android:textSize="24dp" />
-    </LinearLayout>
+        tools:listitem=""/>
 </RelativeLayout>

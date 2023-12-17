@@ -18,19 +18,38 @@
         android:textStyle="bold"
         tools:ignore="MissingConstraints" />
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
+            android:id="@+id/inProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_favorite"/>
-    </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:text="IN PROGRESS"
+            android:textSize="30sp"
+            android:textColor="@color/buttonPrimaryColor"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
+        <TextView
+            android:id="@+id/sorry"
+            android:layout_below="@+id/inProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="sorry for this inconvenience"
+            android:textSize="20sp"
+            android:textColor="@color/buttonPrimaryColor"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
-
+        <ImageView
+            android:layout_below="@+id/sorry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_maintain"/>
+    </RelativeLayout>
 
 </LinearLayout>
