@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/buttonPrimaryColor"
         android:background="#E8E7E7" />
 
     <LinearLayout

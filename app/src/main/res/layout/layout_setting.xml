@@ -1,142 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:id="@+id/favorite_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal">
-
-            <LinearLayout
-                android:id="@+id/favorite_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/recent_bar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/frame_favorite"
-                    android:gravity="center"
-                    android:text="Settings"
-                    android:textSize="24dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/favorite_adapter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/favorite_title"
-                android:background="@drawable/frame"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="user email"
-                        android:textSize="17sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="user id"
-                        android:textSize="17sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Change password"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/favorite_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/favorite_adapter"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/frame"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/double_arrow_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_star" />
-
-                <TextView
-                    android:id="@+id/tvUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Favorite"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/logout_layout"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical">
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="24dp"
+        android:text="Settings"
+        android:textColor="@color/buttonPrimaryColor"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/changeEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/layoutBtn"
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <TextView
-            android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/frame_favorite"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Logout"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#171616" />
+            android:layout_gravity="center"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
 
     </LinearLayout>
-</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/changeUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/layoutBtn"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Username"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+    </LinearLayout>
+
+</LinearLayout>

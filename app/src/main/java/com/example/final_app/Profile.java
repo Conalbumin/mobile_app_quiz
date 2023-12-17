@@ -34,7 +34,7 @@ public class Profile extends AppCompatActivity {
     private FirebaseAuth auth;
     private CircleImageView avatar;
     private TextView id_fullName_TextView;
-    private LinearLayout achievement_layout, change_password;
+    private LinearLayout achievement_layout, change_password, layout_setting;
     private AppCompatButton homeBtn, profileBtn, favoriteBtn, libraryBtn;
 
 
@@ -52,6 +52,7 @@ public class Profile extends AppCompatActivity {
         avatar = findViewById(R.id.id_profile_image);
         id_fullName_TextView = findViewById(R.id.id_fullName_TextView);
         achievement_layout = findViewById(R.id.achievement_layout);
+        layout_setting = findViewById(R.id.layout_setting);
         change_password = findViewById(R.id.change_password);
         homeBtn = findViewById(R.id.homeBtn);
         favoriteBtn = findViewById(R.id.favoriteBtn);
@@ -62,6 +63,11 @@ public class Profile extends AppCompatActivity {
 
         change_password.setOnClickListener(view -> showChangePasswordConfirmationDialog());
 
+        layout_setting.setOnClickListener(v -> {
+            Intent intent=new Intent(this, Setting.class);
+            startActivity(intent);
+            finish();
+        });
         homeBtn.setOnClickListener(v -> {
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);
